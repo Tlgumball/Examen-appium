@@ -11,6 +11,7 @@ import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.serenitybdd.screenplay.ensure.Ensure;
+import org.openqa.selenium.By; // <--- IMPORTANTE: AGREGA ESTA LÍNEA
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
@@ -25,7 +26,6 @@ public class CatalogSteps {
     @Given("que el usuario esta logueado en la aplicacion")
     public void usuarioLogueado() {
         theActorCalled("Estefano");
-        // Aquí podrías llamar a una tarea de Login si fuera necesario
     }
 
     @Given("que el usuario esta en el catalogo")
@@ -36,8 +36,7 @@ public class CatalogSteps {
     @When("navega al catalogo de productos")
     public void navegaAlCatalogo() {
         theActorInTheSpotlight().attemptsTo(
-                // Acción para ir al catálogo
-                Click.on(By.id("com.cibertec.shopping:id/nav_catalog"))
+                Click.on(By.id("edu.pe.cibertec.shooping_cart_appium_demo:id/nav_catalog"))
         );
     }
 
@@ -62,10 +61,11 @@ public class CatalogSteps {
         );
     }
 
-    @Then("deberia ver productos que contengan {string}")
-    public void verificarBusqueda(String texto) {
+
+    @Then("deberia ver productos que contienen {string}")
+    public void verificarBusqueda(String producto) {
         theActorInTheSpotlight().attemptsTo(
-                Ensure.that(TheProductList.contains(texto)).isTrue()
+                Ensure.that(ScreenPlayCatalogPage.productItem(producto)).isDisplayed()
         );
     }
 

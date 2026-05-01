@@ -2,13 +2,9 @@ package edu.pe.cibertec.shooping.steps;
 
 import edu.pe.cibertec.shooping.ui.CheckoutPage;
 import edu.pe.cibertec.shooping.ui.ShippingPage;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
-import net.serenitybdd.screenplay.actors.OnStage;
-import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import org.openqa.selenium.By;
 
@@ -16,7 +12,6 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class CheckoutSteps {
-
 
     @Given("que el usuario tiene productos en el carrito")
     public void usuarioConProductos() {
@@ -79,8 +74,4 @@ public class CheckoutSteps {
         );
     }
 
-    @After
-    public void cerrarEscenario() {
-        OnStage.drawTheCurtain();
-    }
 }
