@@ -26,7 +26,7 @@ public class AppiumHooks {
                 .setDeviceName("emulator-5554")
                 .setAppPackage("edu.pe.cibertec.shooping_cart_appium_demo")
                 .setAppActivity("edu.pe.cibertec.shooping_cart_appium_demo.MainActivity")
-                .setNoReset(false)
+                .setNoReset(true)
                 .setNewCommandTimeout(Duration.ofSeconds(120));
 
         driver = new AndroidDriver(options);
