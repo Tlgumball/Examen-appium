@@ -1,13 +1,18 @@
-Feature: Product filtering in Shooping Cart application
-  As a logged-in user
-  I want to filter productos by category
-  So I can quickly find items of interest
+@catalogo
+Feature: Catalogo de productos
 
-  Background:
-    Given Andrea opens the shopping Cart application
-    When she enters her email "user1@test.com" and password "password1"
-    And she taps the Login button
+  Scenario: Ver lista de productos
+    Given que el usuario esta logueado en la aplicacion
+    When navega al catalogo de productos
+    Then deberia ver la lista de productos disponibles
 
-    Scenario: Filter products by Electronics category
-      When Andrea selects the "Electrónica" category filter
-      Then Andrea should see the product "Laptop HP Pavilion"
+  Scenario: Buscar producto por nombre
+    Given que el usuario esta en el catalogo
+    When busca el producto "Laptop"
+    Then deberia ver productos que contienen "Laptop"
+
+  @filtrar
+  Scenario: Filtrar productos por categoria
+    Given que el usuario esta en el catalogo
+    When filtra los productos por la categoria "Electrónica"
+    Then deberia ver solo productos de la categoria "Electrónica"
