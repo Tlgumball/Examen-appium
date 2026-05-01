@@ -11,6 +11,8 @@ Feature: Catalogo de productos
     When busca el producto "Laptop"
     Then deberia ver productos que contienen "Laptop"
 
+
+
   @filtrar
   Scenario: Filtrar productos por categoria
     Given que el usuario esta en el catalogo
